@@ -293,17 +293,22 @@ body {
 }
 
 
-.container-3{
+.container-3 {
   display: block;
   width: 100%;
 }
+
 // Адаптация под версии экранов //
 
 @media (max-width:320px) {
 
-  .container-3{
-    width:320px;
+  .container-3 {
+    width: 320px;
     position: fixed;
+  }
+
+  .container-4 {
+    display: none;
   }
 
   .container-2 {
@@ -316,16 +321,17 @@ body {
     margin-block-start: 0px;
     margin-block-end: 16px;
     margin-inline: 16px;
-    column-gap: 16px;
-    width: 100%;
+    column-gap: 0px;
   }
 
   .text {
     margin-inline: 16px;
   }
-
+  
   .pagination {
     display: flex;
+    gap: 12px;
+    margin: 0 auto;
     justify-content: center;
   }
 
@@ -336,50 +342,61 @@ body {
         #000 calc(100% - 16px),
         rgba(0, 0, 0, .25) calc(100% - 9px),
         transparent);
+  }
+
+}
+
+@media(max-width: 458px) {
+  .container-3 {
+    position: fixed;
+  }
+
+  .container-4 {
+    display: none;
+  }
+
+  .container-2 {
+    display: none;
+  }
+
+  .container {
+    grid-template-columns: repeat(8, 240px);
+    grid-template-rows: repeat(1, 72px);
+    margin-block-start: 0px;
+    margin-block-end: 16px;
+    margin-inline: 16px;
+    column-gap: 0px;
+  }
+
+  .text {
+    margin-inline: 16px;
+  }
+
+  .swiper-container {
+    mask-image: linear-gradient(90deg,
+        transparent 0, rgba(0, 0, 0, .25) 9px,
+        #000 18px,
+        #000 calc(100% - 16px),
+        rgba(0, 0, 0, .25) calc(100% - 9px),
+        transparent);
+  }
+
+  .pagination {
+    display: flex;
+    gap: 12px;
+    margin: 0 auto;
+    width: 204px;
+    justify-content: center;
   }
   
 }
 
-@media(max-width: 458px) {
-  .container-3{
-    position: fixed;
-  }
+@media(min-width: 458px) {
 
-  .container-2 {
+  .container-3 {
     display: none;
   }
 
-  .container {
-    grid-template-columns: repeat(8, 240px);
-    grid-template-rows: repeat(1, 72px);
-    margin-block-start: 0px;
-    margin-block-end: 16px;
-    margin-inline: 16px;
-    column-gap: 16px;
-  }
-
-  .text {
-    margin-inline: 16px;
-  }
-
-  .pagination {
-    display: flex;
-    justify-content: center;
-  }
-
-  .swiper-container {
-    mask-image: linear-gradient(90deg,
-        transparent 0, rgba(0, 0, 0, .25) 9px,
-        #000 18px,
-        #000 calc(100% - 16px),
-        rgba(0, 0, 0, .25) calc(100% - 9px),
-        transparent);
-        width: 100%;
-  }
-
-}
-
-@media(min-width: 458px) {
   .btn {
     margin-block-start: 24px;
     margin-inline-start: 24px;
@@ -389,18 +406,17 @@ body {
     margin-inline-start: 24px;
   }
 
-    .container {
-      grid-template-columns: repeat(4, 240px);
-      grid-template-rows: repeat(2, 72px);
+  .container {
+    grid-template-columns: repeat(4, 240px);
+    grid-template-rows: repeat(2, 72px);
     margin-inline: 24px;
     column-gap: 24px;
-
   }
 
   .content {
     display: grid;
     grid-template-columns: repeat(3, 240px);
-  grid-template-rows: repeat(1, 72px);
+    grid-template-rows: repeat(1, 72px);
     margin-inline-start: 24px;
     column-gap: 24px;
 
@@ -417,6 +433,10 @@ body {
 
 @media (min-width: 768px) {
 
+  .container-3 {
+    display: none;
+  }
+
   .btn {
     margin-block-start: 24px;
     margin-inline-start: 24px;
@@ -426,9 +446,9 @@ body {
     margin-inline-start: 24px;
   }
 
-    .container {
-      grid-template-columns: repeat(4, 240px);
-      grid-template-rows: repeat(2, 72px);
+  .container {
+    grid-template-columns: repeat(4, 240px);
+    grid-template-rows: repeat(2, 72px);
     margin-inline: 24px;
     column-gap: 24px;
 
@@ -437,7 +457,7 @@ body {
   .content {
     display: grid;
     grid-template-columns: repeat(3, 240px);
-  grid-template-rows: repeat(1, 72px);
+    grid-template-rows: repeat(1, 72px);
     margin-inline-start: 24px;
     column-gap: 24px;
 

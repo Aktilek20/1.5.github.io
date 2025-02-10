@@ -1,5 +1,7 @@
 
 new Swiper('.swiper-container', {
+  mousewheel: true,
+  freemode:true,
   keyboard: {
     enabled: true,
   },
@@ -10,7 +12,15 @@ new Swiper('.swiper-container', {
   breakpoints: {
     320: {
       slidesPerView: 'auto',
-      spaceBetween: 0,
+      spaceBetween: 16,
+      slidesToShow: 1,
+      slidesToScroll: 1,
     },
+    485: {
+      slidesPerView: 'auto',
+      spaceBetween: 16,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    }
   },
 });
