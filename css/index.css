@@ -1,0 +1,416 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url(/font/stylesheet.css);
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+   Упрощаем работу с изображениями и видео
+  */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+   Наследуем свойства шрифт для полей ввода
+  */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+  height: 100%;
+  /**
+     Убираем скачок интерфейса по горизонтали
+     при появлении / исчезновении скроллбара
+    */
+  scrollbar-gutter: stable;
+}
+
+/**
+   Плавный скролл
+  */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+  min-height: 100%;
+  /**
+     Унифицированный интерлиньяж
+    */
+  line-height: 1.5;
+}
+
+/**
+   Нормализация высоты элемента ссылки при его инспектировании в DevTools
+  */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+   Курсор-рука при наведении на элемент
+  */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+   Приведение рамок таблиц в классический 'collapse' вид
+  */
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --color-dark: #1B1C21;
+  --color-light: #ffffff;
+  --color-smoky-white: #F8F8F8;
+  --color-smoky-white-2: #EAEAEA;
+  --color-dark-gray: #7E7E82;
+  --color-light-gray: #80949F;
+  --color-slate-gray: #6B7B84;
+  --color-pang: #b8ffec;
+  --color-light-turquoise: #41F6D7;
+  --color-light-cyan: #D9FFF5;
+  --color-radical-red: #FF3E79;
+  --border-radius-2: 20px;
+  --border-radius: 6px;
+  --border: 2px solid var(--color-radical-red);
+  --font-family-base: "TT Lakes", sans-serif;
+}
+
+* {
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-family: var(--font-family-base);
+  transition: all 0.3s;
+}
+
+hr {
+  display: block;
+  border: 1px solid var(--color-light-cyan);
+}
+
+p {
+  color: var(--color-dark-gray);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+body {
+  background-color: var(--color-smoky-white);
+}
+
+.text {
+  margin-inline-start: 32px;
+  margin-block: 16px;
+}
+
+.container {
+  width: -moz-min-content;
+  width: min-content;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 240px);
+  grid-template-rows: repeat(2, 72px);
+  grid-auto-flow: row;
+  -moz-column-gap: 32px;
+       column-gap: 32px;
+  row-gap: 16px;
+  margin-block-start: 24px;
+  margin-inline: 32px;
+  align-items: center;
+  color: var(--color-light);
+}
+
+.content {
+  display: none;
+  grid-template-columns: repeat(3, 240px);
+  grid-template-rows: repeat(1, 72px);
+  -moz-column-gap: 32px;
+       column-gap: 32px;
+  margin-inline-start: 32px;
+  margin-block-start: 16px;
+  margin-block-end: 46px;
+  align-items: center;
+  color: var(--color-light);
+}
+
+.box {
+  display: grid;
+  grid-template-columns: repeat(1, auto 40px);
+  grid-template-rows: repeat(1, 72px);
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 16px;
+  border: 1px solid var(--color-smoky-white-2);
+  border-radius: 6px;
+}
+
+.box-1 {
+  display: grid;
+  grid-template-columns: repeat(1, auto 40px);
+  grid-template-rows: repeat(1, 72px);
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 16px;
+  border: 1px solid var(--color-smoky-white-2);
+  border-radius: 6px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-block-start: 46px;
+  margin-inline-start: 32px;
+  margin-block-end: 34px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  background-color: var(--color-light);
+}
+
+.container-3 {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 320px) {
+  .container-3 {
+    width: 320px;
+    position: fixed;
+  }
+  .container-2 {
+    display: none;
+  }
+  .container {
+    grid-template-columns: repeat(8, 240px);
+    grid-template-rows: repeat(1, 72px);
+    margin-block-start: 0px;
+    margin-block-end: 16px;
+    margin-inline: 16px;
+    -moz-column-gap: 16px;
+         column-gap: 16px;
+    width: 100%;
+  }
+  .text {
+    margin-inline: 16px;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+  }
+  .swiper-container {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.25) 9px, #000 18px, #000 calc(100% - 16px), rgba(0, 0, 0, 0.25) calc(100% - 9px), transparent);
+            mask-image: linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.25) 9px, #000 18px, #000 calc(100% - 16px), rgba(0, 0, 0, 0.25) calc(100% - 9px), transparent);
+  }
+}
+@media (max-width: 458px) {
+  .container-3 {
+    position: fixed;
+  }
+  .container-2 {
+    display: none;
+  }
+  .container {
+    grid-template-columns: repeat(8, 240px);
+    grid-template-rows: repeat(1, 72px);
+    margin-block-start: 0px;
+    margin-block-end: 16px;
+    margin-inline: 16px;
+    -moz-column-gap: 16px;
+         column-gap: 16px;
+  }
+  .text {
+    margin-inline: 16px;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+  }
+  .swiper-container {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.25) 9px, #000 18px, #000 calc(100% - 16px), rgba(0, 0, 0, 0.25) calc(100% - 9px), transparent);
+            mask-image: linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.25) 9px, #000 18px, #000 calc(100% - 16px), rgba(0, 0, 0, 0.25) calc(100% - 9px), transparent);
+    width: 100%;
+  }
+}
+@media (min-width: 458px) {
+  .btn {
+    margin-block-start: 24px;
+    margin-inline-start: 24px;
+  }
+  .text {
+    margin-inline-start: 24px;
+  }
+  .container {
+    grid-template-columns: repeat(4, 240px);
+    grid-template-rows: repeat(2, 72px);
+    margin-inline: 24px;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
+  }
+  .content {
+    display: grid;
+    grid-template-columns: repeat(3, 240px);
+    grid-template-rows: repeat(1, 72px);
+    margin-inline-start: 24px;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
+  }
+  .pagination,
+  .swiper-pagination-clickable,
+  .swiper-pagination-bullets,
+  .swiper-pagination-horizontal {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .btn {
+    margin-block-start: 24px;
+    margin-inline-start: 24px;
+  }
+  .text {
+    margin-inline-start: 24px;
+  }
+  .container {
+    grid-template-columns: repeat(4, 240px);
+    grid-template-rows: repeat(2, 72px);
+    margin-inline: 24px;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
+  }
+  .content {
+    display: grid;
+    grid-template-columns: repeat(3, 240px);
+    grid-template-rows: repeat(1, 72px);
+    margin-inline-start: 24px;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
+  }
+  .pagination,
+  .swiper-pagination-clickable,
+  .swiper-pagination-bullets,
+  .swiper-pagination-horizontal {
+    display: none;
+  }
+}
+@media (max-width: 1120px) {
+  .btn {
+    background-color: var(--color-light);
+  }
+}/*# sourceMappingURL=index.css.map */
