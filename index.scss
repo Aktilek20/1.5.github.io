@@ -289,7 +289,7 @@ body {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: -0.01em;
-  background-color: var(--color-light);
+  background-color: var(--color-smoky-white);
 }
 
 
@@ -319,6 +319,7 @@ body {
     grid-template-columns: repeat(8, 240px);
     grid-template-rows: repeat(1, 72px);
     margin-block-start: 0px;
+    padding-block-start: 16px;
     margin-block-end: 16px;
     margin-inline: 16px;
     column-gap: 0px;
@@ -363,6 +364,7 @@ body {
     grid-template-columns: repeat(8, 240px);
     grid-template-rows: repeat(1, 72px);
     margin-block-start: 0px;
+    padding-block-start: 16px;
     margin-block-end: 16px;
     margin-inline: 16px;
     column-gap: 0px;
@@ -468,13 +470,6 @@ body {
   .swiper-pagination-bullets,
   .swiper-pagination-horizontal {
     display: none;
-  }
-
-}
-
-@media (max-width: 1120px) {
-  .btn {
-    background-color: var(--color-light);
   }
 
 }
